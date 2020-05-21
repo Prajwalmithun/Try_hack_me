@@ -6,7 +6,7 @@
 > No Answer Needed
 
 2. Find the services exposed by the machine
-```
+
 Scanning:
 
 [NMAP scan result](nmap.txt)
@@ -14,37 +14,37 @@ Scanning:
 [NMAP enumeration result](services_ports.txt)
 
 [Nikto enumeration result](nikto.txt)
-```
+
 > No Answer Needed
 
 3. What is the name of the hidden directory on the web server(enter name without /)?
-```
+
 Directory busting with dirbuster.
 
 URL :- http://ip:port
 Threads :- 200 or set faster
 Wordlist path : /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
-```
+
 > development
 
 4. 	User brute-forcing to find the username & password
-```
+
 You can see Samba File share is running on port 139/445.
 
 We can use enum4linux, an enumeratiion tool for Windows and Samba systems.
 
 [enum4linux results](enum4linux.txt) 
-```
+
 > No Answer Needed
 
 5. What is the username?
-```
+
 On looking at the ending of [this enum4linux results](enum4linux.txt) there are 2 users
-```
+
 > jan
 
 6. What is the password?
-```
+
 Trial 1 : Attempt to login to ssh without password.
 
 [Look at this](jan.png)
@@ -60,22 +60,22 @@ $ hydra -l jan -P /usr/share/wordlists/rockyou.txt 10.10.251.149 -t 4 ssh
 
 Result : Success
 
-```
+
 > armando
 
 7.  What service do you use to access the server(answer in abbreviation in all caps)? 
 	Hint : what command line utility is used for remote access?
-```
+
 Login to target machine via ssh
 
 $ ssh jan@target_ip
 
 Password : armando 
-```
+
 > SSH
 
 8. Enumerate the machine to find any vectors for privilege escalation 
-```
+
 You can try ssh using kay as username. But it ask for passphrase and password. 
 
 You can take 2 routes either to bruteforce using hydra or login using private key.
@@ -123,7 +123,7 @@ Then run this command to login as kay
 $ ssh -i id_rsa kay@[target_ip]
 
 and above passpharase
-```
+
 > No answer needed.
 
 9. What is the name of the other user you found(all lower case)?
